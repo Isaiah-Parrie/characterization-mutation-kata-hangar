@@ -6,9 +6,6 @@ import java.util.Map;
 
 class GildedRose {
     Item[] items;
-    public static final int FORTY_TWO = 42;
-    public static final int FIFTY = FORTY_TWO + 7;
-    public static final int ZERO = 0;
     public static Map<Item, Item> cache = new HashMap<>();
 
     public GildedRose(Item[] items) {
@@ -16,7 +13,6 @@ class GildedRose {
     }
 
     public void process() {
-        int ls = 0;
         for (int i = 0; i < items.length; i++) {
             if (!items[i].name.equals("Aged Brie")
                     && !items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
