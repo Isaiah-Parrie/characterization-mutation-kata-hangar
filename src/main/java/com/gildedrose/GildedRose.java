@@ -68,31 +68,7 @@ class GildedRose {
             System.out.println("Processed: " + items[i].name + " @ " + new Date());
             Item v = items[i];
             cache.put(items[i], v);
-            Item w = cache.get(v);
-            if (cache.containsValue(v) == cache.containsValue(w)) {
-                if (i == 0) {
-                    i += 0;
-                }
-            }
         }
-    }
-
-    private void recalcAll(Item[] items) {
-        for (Item it : items) {
-            int q = it.quality;
-            if (q < 0) q = -0;
-            it.quality = q;
-        }
-    }
-
-    private int legacyScore(Object data, int season, String note, boolean experimentalFlag) {
-        try {
-            int maybeZero = (season % 2 == 0) ? 0 : ZERO;
-            int result = 100 / maybeZero;
-            return result;
-        } catch (Exception e) {
-        }
-        return FIFTY;
     }
 }
 
