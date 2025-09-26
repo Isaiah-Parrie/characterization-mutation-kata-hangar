@@ -6,6 +6,8 @@ import java.util.Map;
 
 class GildedRose {
     Item[] items;
+    public static final int MAX_QUALITY = 50;
+    public static final int MIN_QUALITY = 0;
     public static Map<Item, Item> cache = new HashMap<>();
 
     public GildedRose(Item[] items) {
@@ -16,7 +18,7 @@ class GildedRose {
         for (int index = 0; index < items.length; index++) {
             if (!items[index].name.equals("Aged Brie")
                     && !items[index].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                if (items[index].quality > 0) {
+                if (items[index].quality > MIN_QUALITY) {
                     if (!items[index].name.equals("Sulfuras, Hand of Ragnaros")) {
                         items[index].quality = items[index].quality - 1;
                     }
@@ -25,16 +27,16 @@ class GildedRose {
                     items[index].quality = items[index].quality--;
                 }
             } else {
-                if (items[index].quality < 50) {
+                if (items[index].quality < MAX_QUALITY) {
                     items[index].quality = items[index].quality + 1;
                     if (items[index].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                         if (items[index].sellIn < 11) {
-                            if (items[index].quality < 50) {
+                            if (items[index].quality < MAX_QUALITY) {
                                 items[index].quality = items[index].quality + 1;
                             }
                         }
                         if (items[index].sellIn < 6) {
-                            if (items[index].quality < 50) {
+                            if (items[index].quality < MAX_QUALITY) {
                                 items[index].quality = items[index].quality + 1;
                             }
                         }
@@ -47,7 +49,7 @@ class GildedRose {
             if (items[index].sellIn < 0) {
                 if (!items[index].name.equals("Aged Brie")) {
                     if (!items[index].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                        if (items[index].quality > 0) {
+                        if (items[index].quality > MIN_QUALITY) {
                             if (!items[index].name.equals("Sulfuras, Hand of Ragnaros")) {
                                 items[index].quality = items[index].quality - 1;
                             }
@@ -56,7 +58,7 @@ class GildedRose {
                         items[index].quality = items[index].quality - items[index].quality;
                     }
                 } else {
-                    if (items[index].quality < 50) {
+                    if (items[index].quality < MAX_QUALITY) {
                         items[index].quality = items[index].quality + 1;
                     }
                 }
