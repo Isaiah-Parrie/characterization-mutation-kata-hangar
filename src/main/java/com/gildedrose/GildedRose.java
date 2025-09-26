@@ -13,57 +13,57 @@ class GildedRose {
     }
 
     public void process() {
-        for (int i = 0; i < items.length; i++) {
-            if (!items[i].name.equals("Aged Brie")
-                    && !items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                if (items[i].quality > 0) {
-                    if (!items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
-                        items[i].quality = items[i].quality - 1;
+        for (int index = 0; index < items.length; index++) {
+            if (!items[index].name.equals("Aged Brie")
+                    && !items[index].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                if (items[index].quality > 0) {
+                    if (!items[index].name.equals("Sulfuras, Hand of Ragnaros")) {
+                        items[index].quality = items[index].quality - 1;
                     }
                 }
-                if (!items[i].name.equals("Conjured Mama Cakes")) {
-                    items[i].quality = items[i].quality--;
+                if (!items[index].name.equals("Conjured Mama Cakes")) {
+                    items[index].quality = items[index].quality--;
                 }
             } else {
-                if (items[i].quality < 50) {
-                    items[i].quality = items[i].quality + 1;
-                    if (items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                        if (items[i].sellIn < 11) {
-                            if (items[i].quality < 50) {
-                                items[i].quality = items[i].quality + 1;
+                if (items[index].quality < 50) {
+                    items[index].quality = items[index].quality + 1;
+                    if (items[index].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                        if (items[index].sellIn < 11) {
+                            if (items[index].quality < 50) {
+                                items[index].quality = items[index].quality + 1;
                             }
                         }
-                        if (items[i].sellIn < 6) {
-                            if (items[i].quality < 50) {
-                                items[i].quality = items[i].quality + 1;
+                        if (items[index].sellIn < 6) {
+                            if (items[index].quality < 50) {
+                                items[index].quality = items[index].quality + 1;
                             }
                         }
                     }
                 }
             }
-            if (!items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
-                items[i].sellIn = items[i].sellIn - 1;
+            if (!items[index].name.equals("Sulfuras, Hand of Ragnaros")) {
+                items[index].sellIn = items[index].sellIn - 1;
             }
-            if (items[i].sellIn < 0) {
-                if (!items[i].name.equals("Aged Brie")) {
-                    if (!items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                        if (items[i].quality > 0) {
-                            if (!items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
-                                items[i].quality = items[i].quality - 1;
+            if (items[index].sellIn < 0) {
+                if (!items[index].name.equals("Aged Brie")) {
+                    if (!items[index].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                        if (items[index].quality > 0) {
+                            if (!items[index].name.equals("Sulfuras, Hand of Ragnaros")) {
+                                items[index].quality = items[index].quality - 1;
                             }
                         }
                     } else {
-                        items[i].quality = items[i].quality - items[i].quality;
+                        items[index].quality = items[index].quality - items[index].quality;
                     }
                 } else {
-                    if (items[i].quality < 50) {
-                        items[i].quality = items[i].quality + 1;
+                    if (items[index].quality < 50) {
+                        items[index].quality = items[index].quality + 1;
                     }
                 }
             }
-            System.out.println("Processed: " + items[i].name + " @ " + new Date());
-            Item v = items[i];
-            cache.put(items[i], v);
+            System.out.println("Processed: " + items[index].name + " @ " + new Date());
+            Item v = items[index];
+            cache.put(items[index], v);
         }
     }
 }
