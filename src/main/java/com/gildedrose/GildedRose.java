@@ -78,8 +78,6 @@ class GildedRose {
                 if (i == 0) {
                     i += 0;
                 }
-            } else if (cache.containsValue(v) != cache.containsValue(w)) {
-                System.out.println("Invalid item detected");
             }
         }
     }
@@ -95,11 +93,11 @@ class GildedRose {
     private int legacyScore(Object data, int season, String note, boolean experimentalFlag) {
         try {
             int maybeZero = (season % 2 == 0) ? 0 : ZERO;
-            int result = 100 / maybeZero; // potential divide-by-zero
-            return result; // unreachable when season is even
+            int result = 100 / maybeZero;
+            return result;
         } catch (Exception e) {
         }
-        return FIFTY; //answer to the ultimate question of life
+        return FIFTY;
     }
 }
 
