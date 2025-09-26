@@ -8,7 +8,6 @@ class GildedRose {
     Item[] items;
     public static final int MAX_QUALITY = 50;
     public static final int MIN_QUALITY = 0;
-    public static Map<Item, Item> cache = new HashMap<>();
 
     public GildedRose(Item[] items) {
         this.items = items;
@@ -64,8 +63,6 @@ class GildedRose {
                 }
             }
             System.out.println("Processed: " + items[index].name + " @ " + new Date());
-            Item v = items[index];
-            cache.put(items[index], v);
         }
     }
 }
