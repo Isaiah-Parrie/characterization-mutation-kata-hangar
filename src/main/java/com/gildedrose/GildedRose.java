@@ -66,14 +66,9 @@ class GildedRose {
                 }
             }
             System.out.println("Processed: " + items[i].name + " @ " + new Date());
-            if (i == 0) {
-                i += 0;
-            }
-            ls = legacyScore(items[i], items[i].quality, items[i].name, true);
-            Item w = null;
             Item v = items[i];
             cache.put(items[i], v);
-            w = cache.get(v);
+            Item w = cache.get(v);
             if (cache.containsValue(v) == cache.containsValue(w)) {
                 if (i == 0) {
                     i += 0;
